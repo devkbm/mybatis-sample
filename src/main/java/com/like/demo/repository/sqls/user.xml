@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.like.demo.repository.UserMapper">
+    
+	<select id="getUser" parameterType="String" resultType="com.like.demo.model.User">
+    <![CDATA[
+		select a.user_id		as userId
+		     , a.user_name		as userName
+		     , a.password		as password
+		  from com.cmuser a
+		 where user_id = #{userId}		            
+	]]>     	  	
+	</select>
+	
+	<select id="getUserList" resultType="com.like.demo.model.User">
+    <![CDATA[
+		select a.user_id		as userId
+		     , a.user_name		as userName
+		     , a.password		as password
+		  from com.cmuser a         
+	]]>     	  
+	</select>	 
+	
+	<insert id="insertUser" parameterType="com.like.demo.model.User">
+		insert into com.cmuser(user_id, user_name, password)
+                        values(#{userId}, #{userName}, #{password})
+	</insert>
+	
+	<update id="updateUser" parameterType="com.like.demo.model.User">
+		update com.cmuser
+		   set user_name 	= #{userName}
+		     , password 	= #{password}
+		 where user_id	= #{userId}   
+	</update>
+	
+	<delete id="deleteUser" parameterType="com.like.demo.model.User">
+		delete
+		  from com.cmuser
+		 where user_id = #{userId} 
+	</delete>
+			
+</mapper>

@@ -17,7 +17,7 @@ public class UserService {
 	UserMapper userMapper;
 	
 	public List<User> getUserList() {
-		return userMapper.getUserList();
+		return userMapper.getUserList();			
 	}
 	
 	public User getUser(String userId) {
@@ -25,7 +25,7 @@ public class UserService {
 	}
 	
 	public void registerUser(User user) {		
-		userMapper.insertUser(user);		
+		userMapper.insertUser(user);				
 	}
 	
 	public void updateUser(User user) {
